@@ -1,0 +1,22 @@
+[
+  {
+    "id": "1",
+    "description": "Go to the gym",
+    "status": "completed"
+  },
+  {
+    "id": "2",
+    "description": "Go to the supermarket",
+    "status": "completed"
+  },
+  {
+    "id": "3",
+    "description": "Setup the task manager repo",
+    "status": "in-progress"
+  },
+  {
+    "id": "4",
+    "description": "Design DB for the app",
+    "status": "not-started"
+  }
+]

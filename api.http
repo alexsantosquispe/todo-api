@@ -1,0 +1,17 @@
+### Get all todos
+GET http://localhost:3000/todos
+
+### Get todo by ID
+GET http://localhost:3000/todos/2
+
+### Get todos by status
+GET http://localhost:3000/todos?status=completed
+
+### Post a todo
+POST http://localhost:3000/todos
+Content-Type: application/json
+
+{
+    "description": "Setup linter in the last project",
+    "status": "not-started"
+}
