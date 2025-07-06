@@ -6,7 +6,9 @@ npm-debug.log*
 *.log
 *.tgz
 *.zip
-.vscode/
+# Editor directories and files
+!.vscode/*
+!.vscode/extensions.json
 build/
 dist/
 coverage/
