@@ -66,6 +66,19 @@ app.put('/todos/:id', (req, res) => {
   return res.json(updatedTodo);
 });
 
+app.delete('/todos/:id', (req, res) => {
+  const { id } = req.params;
+  const todoIndex = todos.findIndex((todo) => todo.id === id);
+
+  if (todoIndex === -1) {
+    return res.status(404).json({ message: 'Todo not found' });
+  }
+
+  todos.splice(todoIndex, 1);
+
+  return res.json({ message: 'Todo deleted' });
+});
+
 const PORT = 3000;
 
 app.listen(PORT, () => {
