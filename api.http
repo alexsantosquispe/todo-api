@@ -15,3 +15,13 @@ Content-Type: application/json
     "description": "Setup linter in the last project",
     "status": "not-started"
 }
+
+### Update a todo description and status
+PUT http://localhost:3000/todos/2
+Content-Type: application/json
+
+{
+    "description": "Go to the supermarket and buy some food",
+    "status": "in-progress"
+}
+

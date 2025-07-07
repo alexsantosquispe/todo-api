@@ -42,6 +42,30 @@ app.post('/todos', (req, res) => {
   res.status(201).json(newTodo);
 });
 
+app.put('/todos/:id', (req, res) => {
+  const result = validateTodo(req.body);
+
+  if (!result.success) {
+    return res.status(400).json({ error: JSON.parse(result.error.message) });
+  }
+
+  const { id } = req.params;
+  const todoIndex = todos.findIndex((item) => item.id === id);
+
+  if (todoIndex === -1) {
+    return res.status(404).json({ message: 'Todo not found' });
+  }
+
+  const updatedTodo = {
+    ...todos[todoIndex],
+    ...result.data
+  };
+
+  todos[todoIndex] = updatedTodo;
+
+  return res.json(updatedTodo);
+});
+
 const PORT = 3000;
 
 app.listen(PORT, () => {
