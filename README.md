@@ -33,18 +33,24 @@ npx servor gh:lukejacksonn/perflink --browse --editor --reload
 # Clone repo
 git clone git@github.com:alexsantosquispe/todo-api.git
 cd todo-api
+```
 
+```bash
 # Install dependencies
 npm install
+```
 
+```bash
 # Run development server
 npm run dev
+# The server should run on port 3000
+```
 
 or
 
+```bash
 # Run development server in watch mode
 npm run watch
-
 # The server should run on port 3000
 ```
 
