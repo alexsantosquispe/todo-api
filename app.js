@@ -1,11 +1,28 @@
 const express = require('express');
 const crypto = require('node:crypto');
+const cors = require('cors');
+
 const todos = require('./todos.json');
 const { validateTodo } = require('./schemas/todos.schema');
 
 const app = express();
 //MIddleware to handle JSON requests
 app.use(express.json());
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      const ACCEPTED_ORIGINS = ['http://localhost:8080'];
+      if (ACCEPTED_ORIGINS.includes(origin)) {
+        return callback(null, true);
+      }
+      if (!origin) {
+        return callback(null, true);
+      }
+      return callback(new Error('Not allowed by CORS'));
+    }
+  })
+);
+
 app.disable('x-powered-by');
 
 app.get('/todos', (req, res) => {
