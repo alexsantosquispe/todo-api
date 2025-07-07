@@ -2,6 +2,7 @@
   "name": "todo-api",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "dev": "node app.js",
     "watch": "node --watch app.js",

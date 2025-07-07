@@ -1,4 +1,4 @@
-const z = require('zod');
+import z from 'zod';
 
 const todoSchema = z.object({
   description: z
@@ -8,10 +8,6 @@ const todoSchema = z.object({
   status: z.enum(['not-started', 'in-progress'])
 });
 
-const validateTodo = (todo) => {
+export const validateTodo = (todo) => {
   return todoSchema.safeParse(todo);
-};
-
-module.exports = {
-  validateTodo
 };

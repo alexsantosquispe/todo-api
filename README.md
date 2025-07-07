@@ -2,7 +2,7 @@
 
 ## Overview 📌
 
-This is a simple API for managing todos using Node.js and Express.
+This is a simple API for managing todos using Node.js, Express and React(Vite).
 
 ## Endpoints 📝
 
@@ -18,48 +18,60 @@ This is a simple API for managing todos using Node.js and Express.
 
 - Node.js `v18+`
 - npm or yarn
-- Servor in order to test the api from the html file: https://github.com/lukejacksonn/servor
-  (This step is not required, since you can test the endpoints using tools like Postman or some extension for vscode like [Rest Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client))
-
-```bash
-npx servor gh:lukejacksonn/perflink --browse --editor --reload
-```
+- You can use [Rest Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) or other tools like Postman to test the endpoints
 
 ### Setup 🚀
 
-- Run the server
+#### Run the server
+
+- Clone the repo
 
 ```bash
-# Clone repo
 git clone git@github.com:alexsantosquispe/todo-api.git
-cd todo-api
+cd todo-api/backend
 ```
 
+- Install dependencies
+
 ```bash
-# Install dependencies
 npm install
 ```
 
+- Start the server
+
 ```bash
-# Run development server
 npm run dev
 # The server should run on port 3000
 ```
 
-or
+- Or Run the server in watch mode
 
 ```bash
-# Run development server in watch mode
 npm run watch
 # The server should run on port 3000
 ```
 
-- Test in the browser
+#### Test in the browser
+
+(Note: In the frontend side only the GET todos and DELETE todos/:id endpoints were integrated, the other one will be integrated on next commits)
+
+- Install dependencies
 
 ```bash
-# After start the server and install Servor
-# run
-npx servor ./web
+cd todo-api/frontend
+npm install
 ```
 
-Open the `http://localhost:8080`
+- Run the project with React
+
+```bash
+npm run dev
+```
+
+Open the `http://localhost:5173`
+
+### Screenshots
+
+<div style="display:flex; gap: 12px;">
+  <img src="./screenshots/todo-api-test.png" alt="Desktop view" />
+</div>
