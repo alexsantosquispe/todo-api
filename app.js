@@ -1,6 +1,7 @@
 const express = require('express');
 const crypto = require('node:crypto');
 const todos = require('./todos.json');
+const { validateTodo } = require('./schemas/todos.schema');
 
 const app = express();
 //MIddleware to handle JSON requests
@@ -27,16 +28,15 @@ app.get('/todos/:id', (req, res) => {
 });
 
 app.post('/todos', (req, res) => {
-  const { description, status } = req.body;
+  const result = validateTodo(req.body);
 
-  if (!description || !status) {
-    return res.status(400).json({ message: 'Missing description or status' });
+  if (!result.success) {
+    return res.status(400).json({ error: JSON.parse(result.error.message) });
   }
 
   const newTodo = {
     id: crypto.randomUUID(),
-    description,
-    status
+    ...result.data
   };
   todos.push(newTodo);
   res.status(201).json(newTodo);
